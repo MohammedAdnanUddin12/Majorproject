@@ -6,7 +6,7 @@
     <form method="POST" action="/listings" novalidate class="needs-validation">
       <div class="mb-3">
       <label for="title" class="form-label">Title</label> 
-      <input name="listing[title]" placeholder="Add a catchy title" type="text" class="form-control" required/>
+      <input name="listing[title]" placeholder="Add a catchy title" type="text" class="form-control"pattern="[A-Za-z\s]+" required/>
       <div class="valid-feedback">Look's good !</div>
       <div class="invalid-feedback">Please enter  !</div>
       </div>
@@ -20,7 +20,7 @@
         <label for="image" class="form-label">Image-Link</label> 
         <!--  For Validation Check --=1. Check required Attributes: -->
         <!-- Ensure each input field has the required attribute. For example: -->
-        <input name="listing[image]" placeholder="enter image URL/Link"  type="url"  class="form-control" required/>
+        <input name="listing[image][url]" placeholder="enter image URL/Link"  type="url"  class="form-control" required/>
         <!-- If the required attribute is not set in the input fields themselves but is instead enforced in your backend schema, the browser won't automatically validate those fields. 
          HTML required attributes enable client-side validation, while schema validations happen server-side after form submission. -->
 
