@@ -6,13 +6,14 @@ const mongoose = require ("mongoose");
 const listingSchema = new mongoose.Schema({
     title: { type: String, required: true },
     description: { type: String, required: true },
-    image: {
-        url: { 
-            type: String, 
-            required: true,
-            default:"https://www.google.com/search?q=default+image&rlz=1C1RXQR_enIN1036IN1036&oq=de&gs_lcrp=EgZjaHJvbWUqBggBEEUYOzIGCAAQRRg5MgYIARBFGDsyBggCEEUYOzIGCAMQRRg7MgYIBBBFGDwyBggFEEUYPDIGCAYQRRg8MgYIBxBFGDzSAQgyNDAwajBqN6gCALACAA&sourceid=chrome&ie=UTF-8#vhid=cmONzJaEjGDkSM&vssid=_Sd89Z_CqFvu84-EP54fE2Ak_33",
-        }, 
-    },
+    image : { 
+        filename: String,
+        url: {
+            type: String,
+            default: "https://images.pexels.com/photos/17644421/pexels-photo-17644421/free-photo-of-seagulls-flying-on-sea-shore.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            set : (v) => v === "" ? "https://images.pexels.com/photos/17644421/pexels-photo-17644421/free-photo-of-seagulls-flying-on-sea-shore.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1": v,
+        }
+      },
     price: { type: Number, required: true },
     
     location: { type: String, required: true },
